@@ -49,6 +49,7 @@ def carregar_imagens_customizadas():
         "PALMA_ABERTA": "palmaaberta",
         "POSITIVO": "like",
         "NEGATIVO": "dislike",
+        "ROCK": "rock",
         
         # Gestos de 2 mãos
         "DUPLO_POSITIVO": "duplolike",
@@ -56,6 +57,7 @@ def carregar_imagens_customizadas():
         "DUPLA_PALMA_ABERTA": "2maosabertas",
         "DUPLO_PUNHO_FECHADO": "palmafechadadupla",
         "DUPLO_PAZ_E_AMOR": "duplo_paz_e_amor",
+        "DUPLO_ROCK": "2rock",
         "PONTAS_SE_TOCANDO": "pensando",
         "CORACAO": "coracao",
 
@@ -120,6 +122,9 @@ def classificar_gesto_individual(dedos, landmarks):
     if total_levantados == 5:
         return "PALMA_ABERTA"
 
+    if dedos[1] and dedos[4] and not dedos[2] and not dedos[3]:
+        return "ROCK"
+
     if dedos == [True, False, False, False, False]:
         if landmarks[TIP_IDS[0]].y < landmarks[PIP_IDS[0]].y:
             return "POSITIVO"
@@ -168,6 +173,8 @@ def classificar_gesto_combinado(gestos_maos, hand_landmarks_list=None):
         return "DUPLO_PUNHO_FECHADO"
     if g1 == "PAZ_E_AMOR" and g2 == "PAZ_E_AMOR":
         return "DUPLO_PAZ_E_AMOR"
+    if g1 == "ROCK" and g2 == "ROCK":
+        return "DUPLO_ROCK"
 
     return f"{g1} + {g2}"
 
@@ -226,6 +233,7 @@ def obter_imagem_exibicao(gesto):
         "PALMA_ABERTA": ((255, 255, 0), "Palma Aberta"),
         "POSITIVO": ((0, 255, 255), "Like"),
         "NEGATIVO": ((0, 0, 200), "Deslike"),
+        "ROCK": ((255, 0, 255), "Rock"),
         
         # Gestos de 2 mãos
         "DUPLO_POSITIVO": ((0, 255, 255), "Duplo Like"),
@@ -233,6 +241,7 @@ def obter_imagem_exibicao(gesto):
         "DUPLA_PALMA_ABERTA": ((255, 255, 0), "Duas Palmas Abertas"),
         "DUPLO_PUNHO_FECHADO": ((0, 0, 255), "Duplo Punho Fechado"),
         "DUPLO_PAZ_E_AMOR": ((0, 255, 0), "Duplo Paz e Amor"),
+        "DUPLO_ROCK": ((255, 0, 255), "Duplo Rock"),
         "PONTAS_SE_TOCANDO": ((180, 105, 255), "Pensando"),
         "CORACAO": ((147, 20, 255), "Coracao"),
         
