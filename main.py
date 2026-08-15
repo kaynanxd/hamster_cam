@@ -1,4 +1,5 @@
 import os
+import sys
 import cv2
 import numpy as np
 
@@ -30,7 +31,10 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 768)
 TIP_IDS = [4, 8, 12, 16, 20]     # Polegar, Indicador, Médio, Anelar, Mindinho
 PIP_IDS = [2, 6, 10, 14, 18]
 
-ASSETS_DIR = os.path.join(os.path.dirname(__file__), "assets")
+if hasattr(sys, '_MEIPASS'):
+    ASSETS_DIR = os.path.join(sys._MEIPASS, "assets")
+else:
+    ASSETS_DIR = os.path.join(os.path.dirname(__file__), "assets")
 IMAGENS_GESTOS = {}
 
 def carregar_imagens_customizadas():

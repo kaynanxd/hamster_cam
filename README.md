@@ -36,11 +36,13 @@ uv sync
 
 ## 🚀 Como Executar
 
-Para iniciar o aplicativo com a webcam:
+Para iniciar o aplicativo via código-fonte com a webcam:
 
 ```bash
 uv run python main.py
 ```
+
+ou baixe o executavel disponivel em releases no github e execute na sua maquina
 
 ---
 

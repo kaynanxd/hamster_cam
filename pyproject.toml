@@ -9,3 +9,8 @@ dependencies = [
     "numpy",
     "opencv-python",
 ]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.22.1",
+]
