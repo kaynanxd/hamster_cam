@@ -2,6 +2,10 @@
 
 Um aplicativo interativo em Python que utiliza **OpenCV** e **MediaPipe** para rastrear gestos de **1 mão**, **2 mãos** e **expressões faciais (boca)** via webcam em tempo real, exibindo automaticamente imagens customizadas sobrepostas na tela (Picture-in-Picture).
 
+<p align="center">
+  <img src="assets/feliz.jpg" alt="happy" width="300"/>
+</p>
+
 ---
 
 ## 📸 Funcionalidades
